@@ -1,4 +1,4 @@
-require File.expand_path('../../test_helper', __FILE__)
+require_relative File.expand_path('../../test_helper', __FILE__)
 require 'mocha/cardinality'
 
 class CardinalityTest < Mocha::TestCase
@@ -26,19 +26,22 @@ class CardinalityTest < Mocha::TestCase
 
     assert_equal 'expected at most once', Cardinality.at_most(1).mocha_inspect
     assert_equal 'expected at most twice', Cardinality.at_most(2).mocha_inspect
-    assert_equal 'expected at most 3 times', Cardinality.at_most(3).mocha_inspect
+    assert_equal 'expected at most thrice', Cardinality.at_most(3).mocha_inspect
+    assert_equal 'expected at most 4 times', Cardinality.at_most(4).mocha_inspect
 
     assert_equal 'expected at least once', Cardinality.at_least(1).mocha_inspect
     assert_equal 'expected at least twice', Cardinality.at_least(2).mocha_inspect
-    assert_equal 'expected at least 3 times', Cardinality.at_least(3).mocha_inspect
+    assert_equal 'expected at least thrice', Cardinality.at_least(3).mocha_inspect
+    assert_equal 'expected at least 4 times', Cardinality.at_least(4).mocha_inspect
 
     assert_equal 'expected never', Cardinality.exactly(0).mocha_inspect
     assert_equal 'expected exactly once', Cardinality.exactly(1).mocha_inspect
     assert_equal 'expected exactly twice', Cardinality.exactly(2).mocha_inspect
-    assert_equal 'expected exactly 3 times', Cardinality.times(3).mocha_inspect
+    assert_equal 'expected exactly thrice', Cardinality.times(3).mocha_inspect
+    assert_equal 'expected exactly 4 times', Cardinality.times(4).mocha_inspect
 
     assert_equal 'expected between 2 and 4 times', Cardinality.times(2..4).mocha_inspect
-    assert_equal 'expected between 1 and 3 times', Cardinality.times(1..3).mocha_inspect
+    assert_equal 'expected between 1 and 5 times', Cardinality.times(1..5).mocha_inspect
   end
 
   def test_should_need_verifying

@@ -82,6 +82,7 @@ module Mocha
         when 0 then "no times"
         when 1 then "once"
         when 2 then "twice"
+        when 3 then "thrice"
         else "#{number} times"
       end
     end
